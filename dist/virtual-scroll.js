@@ -206,7 +206,7 @@ var VirtualScrollComponent = (function () {
         var itemsPerRowByCalc = Math.max(1, Math.floor(viewWidth / childWidth));
         var itemsPerCol = Math.max(1, Math.floor(viewHeight / childHeight));
         var scrollTop = Math.max(0, el.scrollTop);
-        var scrollHeight = Math.ceil((childHeight * (itemCount - this.previousEnd) + sumOfCurrentChildHeight) / itemsPerRow + this.topPadding);
+        var scrollHeight = childHeight * Math.ceil(itemCount / itemsPerRow);
         if (itemsPerCol === 1 && Math.floor(scrollTop / scrollHeight * itemCount) + itemsPerRowByCalc >= itemCount) {
             itemsPerRow = itemsPerRowByCalc;
         }
